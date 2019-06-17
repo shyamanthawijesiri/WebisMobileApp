@@ -7,12 +7,12 @@
 <ion-content >
     <body>
      <div>
-              <ion-button expand = "full" color="primary"><ion-icon slot="start" name="mail"></ion-icon>Sign in with email</ion-button>
+              <ion-button expand = "full" color="primary" (click)="onLogin()"><ion-icon slot="start" name="mail" ></ion-icon>Sign in with email</ion-button>
           
         
               <ion-button expand="full"  color="primary" ><ion-icon slot="start" name="logo-facebook"></ion-icon>Sign in with facebook</ion-button>
 
-             <p>Create new Account</p>
+             <p (click)="onSignUp()">Create new Account</p>
     </div>
 
    </body>   
