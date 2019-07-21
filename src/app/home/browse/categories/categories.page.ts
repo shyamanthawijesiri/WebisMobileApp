@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CoursesService } from '../../../services/courses.service';
 
 @Component({
   selector: 'app-categories',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categories.page.scss'],
 })
 export class CategoriesPage implements OnInit {
+  loadedCourse: any
 
-  constructor() { }
+  constructor(private coursesService: CoursesService) { }
 
   ngOnInit() {
+    //d
+    this.coursesService.getCourses().subscribe(response =>{
+      this.loadedCourse=response;
+      console.log(response);
+    });
+    
   }
 
 }
