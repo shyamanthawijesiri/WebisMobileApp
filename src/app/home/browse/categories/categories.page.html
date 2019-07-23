@@ -11,9 +11,10 @@
   <ion-searchbar style="margin-bottom:20px; margin-top:10px;"></ion-searchbar>
     <ion-row>
       <ion-col size="12">
-        <ion-list>
-          <ion-item *ngFor="let course of loadedCourse ">
-              <a ><ion-label>{{course.name}}</ion-label></a>
+        <ion-list *ngFor="let course of loadedCourse; let i = index">
+          <ion-item  >
+            <app-expandable  [expanded]="itemExpand"></app-expandable>
+              <a (click)="getVlaue(i)"><ion-label >{{course.name}}{{i}}</ion-label></a>
           </ion-item>
         </ion-list>
       </ion-col>
