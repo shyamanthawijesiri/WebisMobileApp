@@ -9,31 +9,54 @@ import { CoursesService } from '../../../services/courses.service';
 })
 export class CategoriesPage implements OnInit {
   loadedCourse: any;
+  loadedSubCourses:any;
   itemExpand: boolean = true;
   itemExpandHeight: number = 200;
-
+  informatiion: any;
+  automaticClose = true;
   constructor(private coursesService: CoursesService, private toastCtrl: ToastController) { }
 
   ngOnInit() {
     this.coursesService.getCourses().subscribe(response =>{
-      this.loadedCourse=response;
+      this.informatiion=response;
       console.log(response);
     });
     
     
     
   }
+  
+  toggleSection(index){
+    this.informatiion[index].open = !this.informatiion[index].open;
 
-  seExpande(){
-    if(this.itemExpand==true){
-      this.itemExpand=false;
-    }else{
-      this.itemExpand=true;
+    if(this.automaticClose && this.informatiion[index].open){
+      this.informatiion
+      .filter((itemIndex) => itemIndex != index)
+      .map(item => item.open = false);
     }
+
   }
-  getVlaue(i){
-    console.log(i);
+  onSelect(courseName: string){
+    this.coursesService. getSubcourses(courseName).subscribe(response => {
+      this.loadedSubCourses=response;
+      
+
+
+    });
   }
+
+
+  // seExpande(){
+  //   if(this.itemExpand==true){
+  //     this.itemExpand=false;
+  //   }else{
+  //     this.itemExpand=true;
+  //   }
+  // }
+  // getVlaue(i){
+  //   console.log(i);
+  //   this.loadedCourse[i].open = !this.loadedCourse[i].open;
+  // }
   
 
 
