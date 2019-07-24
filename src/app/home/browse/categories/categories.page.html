@@ -8,33 +8,41 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar style="margin-bottom:20px; margin-top:10px;"></ion-searchbar>
-    <ion-row>
-      <ion-col size="12">
-        <!-- <ion-list *ngFor="let course of loadedCourse; let i = index">
-          <ion-item  >
-            <app-expandable  [expanded]="itemExpand"></app-expandable>
-              <a (click)="getVlaue(i)"><ion-label >{{course.name}}{{i}}</ion-label></a>
-          </ion-item>
-        </ion-list> -->
-        <ion-list *ngFor="let item of informatiion; let i = index;">
-          <ion-item (click)="toggleSection(i)" (click)="onSelect(item.name)" [ngClass]="{'section-active':item.open, 'section':!item.open}">{{item.name}}
-            <ion-icon slot="start" name="arrow-forward" *ngIf="!item.open"></ion-icon>
-            <ion-icon slot="start" name="arrow-down" *ngIf="item.open"></ion-icon>
-          </ion-item>
-          <div *ngIf="item.open">
-            <ion-list *ngFor="let subcourse of loadedSubCourses.re">
-              <ion-item>
-                <ion-label>
-                  {{subcourse.name}}
-                </ion-label>
-              </ion-item>
-            </ion-list>
-          </div>
-        </ion-list>
-      </ion-col>
-    </ion-row>
+  <body>
+      <ion-row>
+          <ion-searchbar style="margin-bottom:20px; margin-top:10px;"></ion-searchbar>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <!-- <ion-list *ngFor="let course of loadedCourse; let i = index">
+            <ion-item  >
+              <app-expandable  [expanded]="itemExpand"></app-expandable>
+                <a (click)="getVlaue(i)"><ion-label >{{course.name}}{{i}}</ion-label></a>
+            </ion-item>
+          </ion-list> -->
+          <ion-list *ngFor="let item of loadedCourse; let i = index;" class="list-main-catergory">
+            <ion-item (click)="toggleSection(i)" (click)="onSelect(item.name)" [ngClass]="{'section-active':item.open, 'section':!item.open}" class="item-main-catergory">
+              
+              <ion-icon slot="start" name="arrow-forward" color="dark"*ngIf="!item.open"></ion-icon>
+              <ion-icon slot="start" name="arrow-down" color="primary" *ngIf="item.open"></ion-icon>
+              {{item.name}}
+            
 
+            </ion-item>
+            <div *ngIf="item.open">
+              <ion-list *ngFor="let subcourse of loadedSubCourses.re">
+                <ion-item>
+                  <ion-label class="ion-text-start" style="margin-left: 50px;" >
+                      
+                    {{subcourse.name}}
+                  </ion-label>
+                </ion-item>
+              </ion-list>
+            </div>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+  </body>
  
 
   
