@@ -8,5 +8,36 @@
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row >
+      <ion-item>
+        
+      </ion-item>
+    </ion-row> 
+    
+    <ion-row>
+      <ion-item>Change Name</ion-item>
+        <ion-item>
+          
+            <ion-input   id="firstName" placeholder="First Name" formControlName="firstName" class="form-controll"></ion-input>    
+        </ion-item>
+        <ion-item>
+            <ion-input   id="lastName" placeholder="Last Name" formControlName="lastName" class="form-controll"></ion-input>    
+        </ion-item>
+    </ion-row>
+    <hr>
+    <ion-row>
+      <ion-item>Change Password</ion-item>
+        <ion-item>
+            <ion-input  type="password" id="currentPassword" placeholder="Current Password" formControlName="currentPassword" class="form-controll"></ion-input>    
+        </ion-item>
+        <ion-item>
+            <ion-input  type="password" id="newPassword" placeholder="New Password" formControlName="newPassword" class="form-controll"></ion-input>    
+        </ion-item>
+        <ion-item>
+            <ion-input type="password"  id="confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword" class="form-controll"></ion-input>    
+        </ion-item>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

@@ -10,24 +10,25 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <form >
-    <ion-item>
-        <ion-input  name="firstname"  id="firstName" placeholder="First Name" ></ion-input>    
-      
+  <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+     
+       <ion-item>
+        <ion-input   id="firstName" placeholder="First Name" formControlName="firstName" class="form-controll"></ion-input>    
         </ion-item>
       <ion-item>
-          <ion-input  name="lastname" id="lastName" placeholder="Last Name"></ion-input> 
+          <ion-input   id="lastName" placeholder="Last Name" formControlName="lastName" class="form-controll"></ion-input> 
           
         </ion-item>
         <ion-item>
-            <ion-input name="email" id="email" placeholder="Email"></ion-input> 
+            <ion-input  id="email" placeholder="Email" formControlName="email" class="form-controll"></ion-input> 
         
           </ion-item>
         <ion-item>
-            <ion-input type="password"  name="password" id="password" placeholder="Password"></ion-input> 
+            <ion-input type="password"   id="password" placeholder="Password" formControlName="password" class="form-controll"></ion-input> 
 
         </ion-item>
         
       <ion-button type="submit" expand="block">Sign Up</ion-button> 
   </form>
+  
 </ion-content>

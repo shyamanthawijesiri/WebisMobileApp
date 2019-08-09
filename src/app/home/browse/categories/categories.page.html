@@ -8,7 +8,6 @@
 </ion-header>
 
 <ion-content>
-  <body>
       <ion-row>
           <ion-searchbar style="margin-bottom:20px; margin-top:10px;"></ion-searchbar>
       </ion-row>
@@ -21,7 +20,7 @@
             </ion-item>
           </ion-list> -->
           <ion-list *ngFor="let item of loadedCourse; let i = index;" class="list-main-catergory">
-            <ion-item (click)="toggleSection(i)" (click)="onSelect(item.name)" [ngClass]="{'section-active':item.open, 'section':!item.open}" class="item-main-catergory">
+            <ion-item  (click)="onSelect(item.name,i)"  [ngClass]="{'section-active':item.open, 'section':!item.open}" class="item-main-catergory">
               
               <ion-icon slot="start" name="arrow-forward" color="dark"*ngIf="!item.open"></ion-icon>
               <ion-icon slot="start" name="arrow-down" color="primary" *ngIf="item.open"></ion-icon>
@@ -42,8 +41,4 @@
           </ion-list>
         </ion-col>
       </ion-row>
-  </body>
- 
-
-  
 </ion-content>

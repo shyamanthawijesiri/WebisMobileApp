@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,} from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { CoursesService } from '../../../services/courses.service';
 
@@ -12,6 +12,7 @@ export class CategoriesPage implements OnInit {
   loadedSubCourses:any;
   itemExpand: boolean = true;
  // itemExpandHeight: number = 200;
+ i: number;
   automaticClose = true;
   constructor(private coursesService: CoursesService, private toastCtrl: ToastController) { }
 
@@ -27,6 +28,8 @@ export class CategoriesPage implements OnInit {
   }
   //auto close and open
   toggleSection(index){
+    // setTimeout(() => {
+    // },530)
     this.loadedCourse[index].open = !this.loadedCourse[index].open;
 
     if(this.automaticClose && this.loadedCourse[index].open){
@@ -34,15 +37,23 @@ export class CategoriesPage implements OnInit {
       .filter((item,itemIndex) => itemIndex != index)
       .map(item => item.open = false);
     }
+    
 
   }
+
   //get sub catergory
-  onSelect(courseName: string){
+  onSelect(courseName: string,index){
     this.coursesService. getSubcourses(courseName).subscribe(response => {
       this.loadedSubCourses=response;
       
+         
+      this.loadedCourse[index].open = !this.loadedCourse[index].open;
 
-
+    if(this.automaticClose && this.loadedCourse[index].open){
+      this.loadedCourse
+      .filter((item,itemIndex) => itemIndex != index)
+      .map(item => item.open = false);
+    }
     });
   }
 

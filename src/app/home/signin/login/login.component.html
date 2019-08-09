@@ -9,13 +9,13 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-    <form >
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()"> 
           <ion-item>
-              <ion-input name="email" id="email" placeholder="Email"></ion-input> 
+              <ion-input name="email" id="email" placeholder="Email" formControlName="email"></ion-input> 
           
             </ion-item>
           <ion-item>
-              <ion-input type="password"  name="password" id="password" placeholder="Password"></ion-input> 
+              <ion-input type="password"  name="password" id="password" placeholder="Password" formControlName="password"></ion-input> 
 
           </ion-item>
           
