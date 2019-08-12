@@ -5,15 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CategoriesPage } from './categories.page';
-import { ExpandableComponent } from '../../../component/expandable/expandable.component';
-//import { CategoriesRoutingModule } from './categroies-routing.module';
-
+import { DisplayCoursePage } from './display-course.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: CategoriesPage
+    component: DisplayCoursePage
   }
 ];
 
@@ -22,9 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    //CategoriesRoutingModule
     RouterModule.forChild(routes)
   ],
-  declarations: [CategoriesPage,ExpandableComponent]
+  declarations: [DisplayCoursePage]
 })
-export class CategoriesPageModule {}
+export class DisplayCoursePageModule {}

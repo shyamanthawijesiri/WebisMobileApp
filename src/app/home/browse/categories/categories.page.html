@@ -31,14 +31,17 @@
             <div *ngIf="item.open">
               <ion-list *ngFor="let subcourse of loadedSubCourses.re">
                 <ion-item>
-                  <ion-label class="ion-text-start" style="margin-left: 50px;" >
+                  <a class="ion-text-start" style="margin-left: 50px;" routerLink="/display-course" >
                       
                     {{subcourse.name}}
-                  </ion-label>
+                  </a>
                 </ion-item>
               </ion-list>
             </div>
           </ion-list>
         </ion-col>
       </ion-row>
+    
+    
+        
 </ion-content>

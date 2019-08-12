@@ -10,16 +10,16 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class UserService {
   authToken: any;
   user: {};
-  constructor(private http: HttpClient, private jwtHelper:JwtHelperService) { }
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
 
-  //register user
+  // register user
   registerUser(user) {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/users/register',user,{headers:headers}).pipe(map((res:any)=>res));
   }
 
-  //login user
+  // login user
   authenticateUser(user) {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
@@ -51,5 +51,27 @@ export class UserService {
     const token=localStorage.getItem('user');
     return JSON.parse(token)
    // this.authToken=token;
+  }
+
+  // get user details
+  getUser(id: string){
+    return this.http.get('http://localhost:3000/users/' + id);
+  }
+ // update account
+  updataAccount(user,id: string){
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.http.put('http://localhost:3000/users/update/'+id,user,{headers:headers}).pipe(map((res:any)=>res));
+
+  }
+
+  // upload a image
+  uploadImage(selectedFile: File,id: string){
+    const fd = new FormData();
+    fd.append('image', selectedFile, selectedFile.name);
+    this.http.post('http://localhost:3000/users/uploadUserImage/'+id,fd)
+    .subscribe(res => {
+      console.log(res);
+    });
   }
 }

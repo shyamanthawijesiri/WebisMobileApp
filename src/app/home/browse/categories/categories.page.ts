@@ -45,11 +45,9 @@ export class CategoriesPage implements OnInit {
   onSelect(courseName: string,index){
     this.coursesService. getSubcourses(courseName).subscribe(response => {
       this.loadedSubCourses=response;
-      
-         
       this.loadedCourse[index].open = !this.loadedCourse[index].open;
 
-    if(this.automaticClose && this.loadedCourse[index].open){
+      if (this.automaticClose && this.loadedCourse[index].open){
       this.loadedCourse
       .filter((item,itemIndex) => itemIndex != index)
       .map(item => item.open = false);

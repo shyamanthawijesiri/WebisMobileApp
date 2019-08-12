@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { SigninPage } from './signin.page';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { SigninRoutingModule } from './signin-routing.module';
 
 
 const routes: Routes = [
@@ -23,6 +24,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
+    SigninRoutingModule,
+    
     RouterModule.forChild(routes)
   ],
   declarations: [SigninPage, SignupComponent,LoginComponent],

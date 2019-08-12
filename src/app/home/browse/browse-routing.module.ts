@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowsePage } from './browse.page';
+import { DisplayCoursePage } from './categories/display-course/display-course.page';
 
 const routes: Routes = [
     {
@@ -21,9 +22,12 @@ const routes: Routes = [
                     {
                         path: '',
                         loadChildren: './categories/categories.module#CategoriesPageModule'
-                    }
+                    },
+                    
+                    
                 ]
             },
+          
             {
                 path: 'mycourses', children: [
                     {
@@ -55,7 +59,17 @@ const routes: Routes = [
       path: '',
       redirectTo: '/browse/browse-tabs/featured',
       pathMatch: 'full'
-    }
+    },
+    
+//   {
+//        path: 'display-course',
+//        component: DisplayCoursePage, 
+//        children: [
+//                 {path:'',redirectTo: '/browse/display-course', pathMatch: 'full'},
+//                 {path:'display-course', loadChildren:'./categories/display-course/display-course.module#DisplayCoursePageModule'}
+//             ] 
+//     }
+
 
 
 ];
