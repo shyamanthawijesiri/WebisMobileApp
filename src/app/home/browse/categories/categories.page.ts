@@ -1,6 +1,7 @@
 import { Component, OnInit,} from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { CoursesService } from '../../../services/courses.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-categories',
@@ -11,10 +12,11 @@ export class CategoriesPage implements OnInit {
   loadedCourse: any;
   loadedSubCourses:any;
   itemExpand: boolean = true;
+  logedin: boolean;
  // itemExpandHeight: number = 200;
  i: number;
   automaticClose = true;
-  constructor(private coursesService: CoursesService, private toastCtrl: ToastController) { }
+  constructor(private coursesService: CoursesService, private toastCtrl: ToastController, private userService: UserService) { }
 
   ngOnInit() {
     //get main catergory
@@ -22,7 +24,7 @@ export class CategoriesPage implements OnInit {
       this.loadedCourse=response;
       console.log(response);
     });
-    
+    this.logedin = this.userService.loggedIn();
     
     
   }

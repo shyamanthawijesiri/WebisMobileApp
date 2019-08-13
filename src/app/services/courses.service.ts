@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpClientModule,HttpHeaders} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
 
 @Injectable({
@@ -30,4 +31,32 @@ export class CoursesService {
        return course;
     
      }
+
+     getSubcourseDetails(subCatergory){
+       return this.http.get("http://localhost:3000/subCatergory/"+subCatergory);
+     }
+
+
+  // display a full course
+displaycourse(id: string){
+  const course = this.http.get("http://localhost:3000/course/display/"+id);
+  return course;
+
+}
+
+registerUserToCourse(course, id: string){
+  const httpOption ={
+    headers: new HttpHeaders({
+      'Content-type':'application/json',
+      'Authorization' : localStorage.getItem('id_token')
+  })
+  };
+  //let headers = new HttpHeaders();
+
+
+   //headers.append('Authorization',localStorage.getItem('id_token'));
+  return this.http.post('http://localhost:3000/course/registerCourse/'+id,course,httpOption).pipe(map((res:any)=>res));
+
+
+}
 }

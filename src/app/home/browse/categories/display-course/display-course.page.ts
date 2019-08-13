@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CoursesService } from 'src/app/services/courses.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-display-course',
@@ -8,14 +9,26 @@ import { CoursesService } from 'src/app/services/courses.service';
 })
 export class DisplayCoursePage implements OnInit {
   loadedSubCourse: any;
-  constructor(private courseService: CoursesService) { }
+  subCourse: any //{id: string}
+  constructor(private courseService: CoursesService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    // this.courseService. getSubcourses().subscribe(response => {
-    //   this.loadedSubCourse=response;
-
-    //   console.log(response);
-    // });
+    
+    // this.subCourse = {
+      // };
+      this.subCourse = this.activatedRoute.snapshot.paramMap.get('subCategory');
+      console.log(this.subCourse)
+      
+      this.courseService. getSubcourseDetails(this.subCourse).subscribe(response => {
+        this.loadedSubCourse=response;
+  
+        console.log(response);
+      });
+      // this.activatedRoute.params.subscribe(
+    //   (params: Params) => {
+    //     this.subCourse.id = params['subCategory'];
+    //   }
+    // );
   }
 
 }

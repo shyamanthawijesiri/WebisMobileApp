@@ -1,16 +1,23 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>display-course</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/categories"></ion-back-button>
+        
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<ion-list>
-  <ion-item>
+
+  <ion-item *ngFor="let subcourse of loadedSubCourse">
       <ion-avatar slot="start">
-          <img src="">
+          <img src="{{subcourse.url}}">
         </ion-avatar>
-      <ion-label>Item Avatar</ion-label>
+      <a [routerLink]="['/',subcourse._id]"><ion-label position="stacked">{{subcourse.name}}</ion-label>
+        <ion-label position="stacked">By: {{subcourse.author}}</ion-label>
+      </a>
+      
   </ion-item>
-</ion-list>
+
 </ion-content>

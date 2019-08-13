@@ -23,11 +23,12 @@ const routes: Routes = [
                         path: '',
                         loadChildren: './categories/categories.module#CategoriesPageModule'
                     },
-                    
-                    
+                    {
+                        path:':subCategory',
+                        loadChildren: './categories/display-course/display-course.module#DisplayCoursePageModule'
+                    },
                 ]
             },
-          
             {
                 path: 'mycourses', children: [
                     {

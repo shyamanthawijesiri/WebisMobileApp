@@ -1,3 +1,22 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="end" menuId="m1">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>
+            hello
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+                  <ion-content>
+                    <ion-list>
+                      <ion-item *ngIf="!userService.loggedIn()">
+                        <a [routerLink]="['/signin']">login</a>
+                      </ion-item>
+                      <ion-item *ngIf="userService.loggedIn()">
+                        <a [routerLink]="['/home']" (click)="onLogout()">logout</a>
+                      </ion-item>
+                    </ion-list>
+                  </ion-content>
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
 </ion-app>

@@ -37,7 +37,8 @@ const routes: Routes = [
         path: '',
         redirectTo: '/home/tabs/browse',
         pathMatch: 'full'
-    }
+    },  { path: 'course-details', loadChildren: './course-details/course-details.module#CourseDetailsPageModule' }
+
 
 ];
 
