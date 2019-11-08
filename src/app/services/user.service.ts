@@ -74,4 +74,8 @@ export class UserService {
       console.log(res);
     });
   }
+
+  getRegisteredCourse(id: string){
+    return this.http.get('http://localhost:3000/users/' + id);
+  }
 }

@@ -8,5 +8,13 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-item *ngFor="let course of courses.User.registerCourse">
+    <ion-avatar slot="start">
+        <img src="{{course.url}}">
+      </ion-avatar>
+    <a [routerLink]="['/',course._id]"><ion-label position="stacked">{{course.name}}</ion-label>
+      <ion-label position="stacked">By: {{course.author}}</ion-label>
+    </a>
+    
+</ion-item>
 </ion-content>

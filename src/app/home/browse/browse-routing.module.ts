@@ -24,8 +24,18 @@ const routes: Routes = [
                         loadChildren: './categories/categories.module#CategoriesPageModule'
                     },
                     {
-                        path:':subCategory',
-                        loadChildren: './categories/display-course/display-course.module#DisplayCoursePageModule'
+                        path:':subCategory', children: [
+                            
+                        {
+                            path: '',
+                            loadChildren: './categories/display-course/display-course.module#DisplayCoursePageModule'
+                        },
+                        {
+    
+                             path: 'course-content', 
+                             loadChildren: './categories/display-course/course-content/course-content.module#CourseContentPageModule' 
+                        }
+                        ]
                     },
                 ]
             },
@@ -61,6 +71,8 @@ const routes: Routes = [
       redirectTo: '/browse/browse-tabs/featured',
       pathMatch: 'full'
     },
+  
+
     
 //   {
 //        path: 'display-course',

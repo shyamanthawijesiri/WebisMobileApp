@@ -1,10 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>course-details</ion-title>
-    <ion-buttons slot="start">
-        <ion-back-button defaultHref="/display-course"></ion-back-button>
-        
-      </ion-buttons>
+    <ion-title>course-content</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -18,8 +14,7 @@
           </ion-card-header>
           <ion-img src="{{loadedCourse.url}}"></ion-img>
           <ion-card-content>{{loadedCourse.description}}
-            <!-- <ion-button (click)="onRegistercourse()" *ngIf="userService.loggedIn()">Enroll</ion-button> -->
-            <ion-button [routerLink]="['/',courseId,'enroll-course']">Enroll</ion-button>
+            <ion-button (click)="onRegistercourse()" *ngIf= "u">Enroll</ion-button>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -35,6 +30,5 @@
         <ion-item>topic 6</ion-item>
       </ion-list>
     </ion-row>
-  </ion-grid>
-
+  </ion-grid>   
 </ion-content>

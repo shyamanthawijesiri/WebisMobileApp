@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>enroll-course</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let vid of videos">
+    <iframe  id="player" type="text/html" [src]="vid" frameborder="0" allowfullscreen></iframe>
+  </div>
+</ion-content>

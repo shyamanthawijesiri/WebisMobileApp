@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-mycourses',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mycourses.page.scss'],
 })
 export class MycoursesPage implements OnInit {
-
-  constructor() { }
+  pass: any;
+  courses: any;
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.pass = this.userService.loadToken();
+      this.userService.getRegisteredCourse(this.pass.id).subscribe(res =>{
+        this.courses = res;
+      console.log(res);
+      });
   }
 
 }
