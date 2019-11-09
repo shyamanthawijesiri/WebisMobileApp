@@ -21,37 +21,63 @@
     </ion-row> 
     <ion-row>
       <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
-          <ion-item>Change Name</ion-item>
+          <h4> Change Name </h4>
+          
          
           
             <ion-item>
-              
+              <ion-input>
                 <ion-input   id="firstName" placeholder="First Name" formControlName="fname" class="form-controll" value="{{userImg.fname}}"></ion-input>    
+              </ion-input>
             </ion-item>
             <ion-item>
+              <ion-input>
                 <ion-input   id="lastName" placeholder="Last Name" formControlName="lname" class="form-controll" value="{{userImg.lname}}"></ion-input>    
+              </ion-input>
             </ion-item>
-            <ion-item>
-
-              <input type="file" class="form-control-file" id="exampleFormControlFile1" (change)="onFileSelected($event)" >
-            </ion-item>
-            <ion-item>
-              <ion-button type="submit">save</ion-button>
-          </ion-item>
+           
+            <ion-button type="submit">save</ion-button>
         </form>
         </ion-row>
         <hr>
         <ion-row>
-          <ion-item>Change Password</ion-item>
-            <ion-item>
-                <ion-input  type="password" id="currentPassword" placeholder="Current Password" formControlName="currentPassword" class="form-controll"></ion-input>    
-            </ion-item>
-            <ion-item>
-                <ion-input  type="password" id="newPassword" placeholder="New Password" formControlName="newPassword" class="form-controll"></ion-input>    
-            </ion-item>
-            <ion-item>
-                <ion-input type="password"  id="confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword" class="form-controll"></ion-input>    
-            </ion-item>
+          <form>
+
+            <h4> Change Image </h4>
+             
+               <ion-item>
+                 <ion-input>
+                   <input type="file" class="form-control-file" id="exampleFormControlFile1" (change)="onFileSelected($event)" >
+                 </ion-input>
+               </ion-item>
+               
+               <ion-button type="submit">save</ion-button>
+          </form>
+        </ion-row>
+        <hr>
+        <ion-row>
+          <form [formGroup]="passwordrestForm">
+
+              <h4> Change Password </h4>
+          
+              <ion-item>
+                <ion-input>
+                  <ion-input  type="password" id="currentPassword" placeholder="Current Password" formControlName="currentPassword" class="form-controll"></ion-input>    
+                </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input>
+                  <ion-input  type="password" id="newPassword" placeholder="New Password" formControlName="newPassword" class="form-controll"></ion-input>    
+                </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input>
+                  <ion-input type="password"  id="confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword" class="form-controll"></ion-input>    
+                </ion-input>
+              </ion-item>
+            
+              <ion-button type="submit">save</ion-button>
+          </form>
         </ion-row>
   </ion-grid>
 

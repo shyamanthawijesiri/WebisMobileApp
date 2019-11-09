@@ -24,6 +24,10 @@ export class CourseDetailsPage implements OnInit {
    this.pass = this.userService.loadToken();
   }
 
+  get userLoggedIn(){
+    return this.userService.loggedIn()
+  }
+
 
 
   onRegistercourse(){

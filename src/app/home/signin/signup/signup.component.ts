@@ -27,7 +27,8 @@ export class SignupComponent implements OnInit {
       firstName: ['', [ Validators.required, Validators.minLength(4) ]],
       lastName: ['', [ Validators.required , Validators.minLength(4) ]],
       email: ['', [ Validators.required, Validators.minLength(4) ]],
-      password: ['', [ Validators.required, Validators.minLength(4) ]]
+      password: ['', [ Validators.required, Validators.minLength(4) ]],
+      role: ['student',  Validators.required],
     });
   }
 
@@ -57,8 +58,8 @@ async onLogin(){
 
   async failedSignup() {
     const toast = await this.toast.create({
-      message: 'Register successfully',
-      color: 'success',
+      message: 'Register failed',
+      color: 'danger',
       duration: 2000
     });
     toast.present();

@@ -55,8 +55,10 @@ export class UserService {
 
   // get user details
   getUser(id: string){
-    return this.http.get('http://localhost:3000/users/' + id);
+    return this.http.get('http://localhost:3000/users/particularUser/' + id);
   }
+
+  
  // update account
   updataAccount(user,id: string){
     let headers = new HttpHeaders();
@@ -65,15 +67,21 @@ export class UserService {
 
   }
 
+  changePassword(restpassword, id: string){
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.http.put('http://localhost:3000/users/editUserProfile/' + id, restpassword,{headers:headers}).pipe(map((res:any)=>res));
+  }
+
   // upload a image
   uploadImage(selectedFile: File,id: string){
     const fd = new FormData();
     fd.append('image', selectedFile, selectedFile.name);
-    this.http.post('http://localhost:3000/users/uploadUserImage/'+id,fd)
-    .subscribe(res => {
-      console.log(res);
-    });
+    return this.http.post('http://localhost:3000/users/uploadUserImage/'+id,fd).pipe(map((res:any)=>res));
+  
   }
+
+
 
   getRegisteredCourse(id: string){
     return this.http.get('http://localhost:3000/users/' + id);

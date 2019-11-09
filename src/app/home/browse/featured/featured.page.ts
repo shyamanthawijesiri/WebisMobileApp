@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CoursesService } from 'src/app/services/courses.service';
 
 @Component({
   selector: 'app-featured',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./featured.page.scss'],
 })
 export class FeaturedPage implements OnInit {
-
-  constructor() { }
+  topCourse:any;
+  constructor(private coursesService: CoursesService) { }
 
   ngOnInit() {
+    this.coursesService.getTopRate().subscribe(res =>{
+      console.log('top rate')
+      this.topCourse = res;
+      console.log(res);
+    });
   }
 
 }

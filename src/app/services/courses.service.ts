@@ -31,6 +31,12 @@ export class CoursesService {
        return course;
     
      }
+     // get top rated course
+     getTopRate(){
+
+      return this.http.get('http://localhost:3000/course/highRated' );
+    
+    }
 
      getSubcourseDetails(subCatergory){
        return this.http.get("http://localhost:3000/subCatergory/"+subCatergory);
@@ -59,4 +65,6 @@ registerUserToCourse(course, id: string){
 
 
 }
+
+
 }
