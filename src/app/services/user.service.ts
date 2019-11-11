@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -16,14 +17,14 @@ export class UserService {
   registerUser(user) {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/register',user,{headers:headers}).pipe(map((res:any)=>res));
+    return this.http.post(environment.url+'/users/register',user,{headers:headers}).pipe(map((res:any)=>res));
   }
 
   // login user
   authenticateUser(user) {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/authenticate',user,{headers:headers}).pipe(map((res:any)=>res));
+    return this.http.post(environment.url+'/users/authenticate',user,{headers:headers}).pipe(map((res:any)=>res));
   }
 
   // users loggedIn
@@ -55,7 +56,7 @@ export class UserService {
 
   // get user details
   getUser(id: string){
-    return this.http.get('http://localhost:3000/users/particularUser/' + id);
+    return this.http.get(environment.url+'/users/particularUser/' + id);
   }
 
   
@@ -63,27 +64,27 @@ export class UserService {
   updataAccount(user,id: string){
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.http.put('http://localhost:3000/users/update/'+id,user,{headers:headers}).pipe(map((res:any)=>res));
+    return this.http.put(environment.url+'/users/update/'+id,user,{headers:headers}).pipe(map((res:any)=>res));
 
   }
 
   changePassword(restpassword, id: string){
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.http.put('http://localhost:3000/users/editUserProfile/' + id, restpassword,{headers:headers}).pipe(map((res:any)=>res));
+    return this.http.put(environment.url+'/users/editUserProfile/' + id, restpassword,{headers:headers}).pipe(map((res:any)=>res));
   }
 
   // upload a image
   uploadImage(selectedFile: File,id: string){
     const fd = new FormData();
     fd.append('image', selectedFile, selectedFile.name);
-    return this.http.post('http://localhost:3000/users/uploadUserImage/'+id,fd).pipe(map((res:any)=>res));
+    return this.http.post(environment.url+'/users/uploadUserImage/'+id,fd).pipe(map((res:any)=>res));
   
   }
 
 
 
   getRegisteredCourse(id: string){
-    return this.http.get('http://localhost:3000/users/' + id);
+    return this.http.get(environment.url+'/users/' + id);
   }
 }

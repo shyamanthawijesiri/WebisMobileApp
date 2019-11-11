@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpClientModule,HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -12,11 +13,9 @@ export class CoursesService {
 
   getCourses(){
     // const course=this.http.get("http://localhost:3000/course/display");
-     const course=this.http.get("http://localhost:3000/catergory/display");
+     return this.http.get(environment.url+'/catergory/display');
    
-     console.log(course);
-     console.log("MMMMMMMMMMMMMMM")
-     return course;
+ 
    
    }
 
@@ -24,29 +23,27 @@ export class CoursesService {
 
     console.log(catergory);
       // const course=this.http.get("http://localhost:3000/course/display");
-      const course=this.http.get("http://localhost:3000/subCatergory/display/"+catergory);
-    
-       console.log(course);
-       console.log("MMMMMMMMMMMMMMM")
-       return course;
+    return this.http.get(environment.url+'/subCatergory/display/'+catergory);
+
+     
     
      }
      // get top rated course
      getTopRate(){
 
-      return this.http.get('http://localhost:3000/course/highRated' );
+      return this.http.get(environment.url+'/course/highRated' );
     
     }
 
      getSubcourseDetails(subCatergory){
-       return this.http.get("http://localhost:3000/subCatergory/"+subCatergory);
+       return this.http.get(environment.url+'/subCatergory/' +subCatergory);
      }
 
 
   // display a full course
 displaycourse(id: string){
-  const course = this.http.get("http://localhost:3000/course/display/"+id);
-  return course;
+  return this.http.get(environment.url+'/course/display/'+id);
+  
 
 }
 
@@ -57,18 +54,17 @@ registerUserToCourse(course, id: string){
       'Authorization' : localStorage.getItem('id_token')
   })
   };
-  //let headers = new HttpHeaders();
+ 
 
 
-   //headers.append('Authorization',localStorage.getItem('id_token'));
-  return this.http.post('http://localhost:3000/course/registerCourse/'+id,course,httpOption).pipe(map((res:any)=>res));
+  return this.http.post(environment.url+'course/registerCourse/'+id,course,httpOption).pipe(map((res:any)=>res));
 
 
 }
 
 rateCourse(rate){
   console.log(rate)
-  return this.http.post('http://localhost:3000/course/rating' , rate).pipe(map((res:any)=>res));
+  return this.http.post(environment.url+'/course/rating' , rate).pipe(map((res:any)=>res));
 }
 
 
