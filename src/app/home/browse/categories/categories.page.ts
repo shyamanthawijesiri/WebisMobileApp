@@ -12,7 +12,7 @@ export class CategoriesPage implements OnInit {
   loadedCourse: any;
   loadedSubCourses:any;
   itemExpand: boolean = true;
-  logedin: boolean;
+  loggedin: boolean;
  // itemExpandHeight: number = 200;
  i: number;
   automaticClose = true;
@@ -24,7 +24,7 @@ export class CategoriesPage implements OnInit {
       this.loadedCourse=response;
       console.log(response);
     });
-    this.logedin = this.userService.loggedIn();
+    this.loggedin = this.userService.loggedIn();
     
     
   }

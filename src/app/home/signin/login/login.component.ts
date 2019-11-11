@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
         this.userService.storeUserData(res.token, res.user);
         console.log('login');
         this.onCancel();
-        this.router.navigateByUrl('/browse/browse-tabs/settings');
+        this.router.navigateByUrl('/browse/browse-tabs/mycourses');
         this.successLogin();
       }else{
         console.log('error');

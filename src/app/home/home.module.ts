@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { HomePage } from './home.page';
 import { HomeRoutingModule } from './home-routing.module';
+import { SharedComponentModule } from '../component/sharedComponent.module';
 
 const routes: Routes = [
     {
@@ -21,6 +22,7 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
+    SharedComponentModule,
   // HomeRoutingModule,
    RouterModule.forChild(routes)
   ],

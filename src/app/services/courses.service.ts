@@ -66,5 +66,10 @@ registerUserToCourse(course, id: string){
 
 }
 
+rateCourse(rate){
+  console.log(rate)
+  return this.http.post('http://localhost:3000/course/rating' , rate).pipe(map((res:any)=>res));
+}
+
 
 }

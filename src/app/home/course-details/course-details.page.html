@@ -17,19 +17,38 @@
             <ion-card-title class="ion-text-center">{{loadedCourse.name}}</ion-card-title>
           </ion-card-header>
           <ion-img src="{{loadedCourse.url}}"></ion-img>
-          <ion-card-content>{{loadedCourse.description}}
+          <ion-card-content>
+              <ion-row>
+                  <ion-col>
+                    <div class="ion-text-justify">
+                    
+                      {{loadedCourse.description}}
+                    </div>
+                  </ion-col>
+                </ion-row>
             <!-- <ion-button (click)="onRegistercourse()" *ngIf="userloggedIn()">Enroll</ion-button> -->
-            <ion-button [routerLink]="['/',courseId,'enroll-course']">Enroll</ion-button>
+            <ion-button [routerLink]="['/',courseId,'enroll-course']" (click)="onRegistercourse()">Enroll</ion-button>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-list *ngFor="let course of course.topics">
+      <ion-col>
 
-        <ion-item>{{course.topic}}</ion-item>
-       
-      </ion-list>
+      
+   <h4 class="ion-text-center"> Course content </h4>
+  
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+
+        <ion-list *ngFor="let course of loadedCourse.topics" s>
+  
+          <ion-item lines="none">{{course.topic}}</ion-item>
+         
+        </ion-list>
+      </ion-col>
     </ion-row>
   </ion-grid>
 

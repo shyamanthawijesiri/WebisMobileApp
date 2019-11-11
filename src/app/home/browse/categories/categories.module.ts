@@ -9,6 +9,7 @@ import { CategoriesPage } from './categories.page';
 import { ExpandableComponent } from '../../../component/expandable/expandable.component';
 
 
+
 const routes: Routes = [
   {
     path: '',
@@ -23,6 +24,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [CategoriesPage,ExpandableComponent]
+  declarations: [CategoriesPage]
 })
 export class CategoriesPageModule {}

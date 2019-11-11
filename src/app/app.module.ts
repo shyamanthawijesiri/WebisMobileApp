@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
+import { TopicShortenPipe } from './pipe/topic-shorten.pipe';
+//import { IonicRatingModule } from 'ionic-rating';
 
 export function tokenGetter() {
   return localStorage.getItem('id_token');
@@ -20,7 +22,14 @@ export function tokenGetter() {
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,FormsModule,ReactiveFormsModule,JwtModule.forRoot({
+  imports: [BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+   // IonicRatingModule,
+    JwtModule.forRoot({
     config: {
       tokenGetter: tokenGetter
 

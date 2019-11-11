@@ -4,80 +4,102 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
+    <ion-buttons slot="end" *ngIf="loggedin">
+        <ion-menu-button menu="m1"></ion-menu-button>
+      
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid>
     <ion-row >
-      <ion-item>
+      <ion-item lines="none">
         <ion-thumbnail slot="start">
-          <ion-img src="{{userImg.imageURL}}" style="border-radius: 50%"></ion-img>
+          <ion-img src="{{user.imageURL}}" style="border-radius: 50%;"></ion-img>
         </ion-thumbnail>
-        <ion-label>{{userImg.fname}} &nbsp; {{userImg.lname}}</ion-label>
+        <ion-label>{{user.fname}} &nbsp; {{user.lname}}</ion-label>
         
       </ion-item>
       
-    </ion-row> 
+    </ion-row>
+    <div class="hr"> </div>
     <ion-row>
-      <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
-          <h4> Change Name </h4>
-          
-         
-          
-            <ion-item>
-              <ion-input>
-                <ion-input   id="firstName" placeholder="First Name" formControlName="fname" class="form-controll" value="{{userImg.fname}}"></ion-input>    
-              </ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input>
-                <ion-input   id="lastName" placeholder="Last Name" formControlName="lname" class="form-controll" value="{{userImg.lname}}"></ion-input>    
-              </ion-input>
-            </ion-item>
-           
-            <ion-button type="submit">save</ion-button>
-        </form>
-        </ion-row>
-        <hr>
-        <ion-row>
-          <form>
-
-            <h4> Change Image </h4>
-             
-               <ion-item>
-                 <ion-input>
-                   <input type="file" class="form-control-file" id="exampleFormControlFile1" (change)="onFileSelected($event)" >
-                 </ion-input>
-               </ion-item>
-               
-               <ion-button type="submit">save</ion-button>
-          </form>
-        </ion-row>
-        <hr>
-        <ion-row>
-          <form [formGroup]="passwordrestForm">
-
-              <h4> Change Password </h4>
-          
-              <ion-item>
-                <ion-input>
-                  <ion-input  type="password" id="currentPassword" placeholder="Current Password" formControlName="currentPassword" class="form-controll"></ion-input>    
-                </ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-input>
-                  <ion-input  type="password" id="newPassword" placeholder="New Password" formControlName="newPassword" class="form-controll"></ion-input>    
-                </ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-input>
-                  <ion-input type="password"  id="confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword" class="form-controll"></ion-input>    
-                </ion-input>
-              </ion-item>
+      <ion-col size="12">
+        
+        <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
+            <h4> Change Name </h4>
             
-              <ion-button type="submit">save</ion-button>
+           
+            
+              <ion-item lines="none">
+                
+                <ion-input   id="firstName" placeholder="First Name" formControlName="fname" class="form-controll" value="{{user.fname}}"></ion-input>    
+              
+              </ion-item>
+              <ion-item lines="none">
+                
+                <ion-input   id="lastName" placeholder="Last Name" formControlName="lname" class="form-controll" value="{{user.lname}}"></ion-input>    
+              
+              </ion-item>
+              <ion-item lines="none" style="float: right;">
+                <ion-button type="submit"  >save</ion-button>
+              </ion-item>
+             
           </form>
+      </ion-col>
+        </ion-row>
+        <div class="hr"> </div>
+        <ion-row>
+          <ion-col size="12">
+
+            <form>
+  
+              <h4> Change Image </h4>
+               
+                 <ion-item lines="none"> 
+                   
+                   <input type="file" class="form-control-file" id="exampleFormControlFile1" (change)="onFileSelected($event)">
+                 
+                 </ion-item>
+                 <ion-item lines="none" style="float: right;">
+
+                   <ion-button type="button" (click)="uploadImage()">save</ion-button>
+                 </ion-item>
+                 
+            </form>
+          </ion-col>
+        </ion-row>
+        <div class="hr"> </div>
+        <hr>
+        <ion-row>
+          <ion-col>
+
+            <form [formGroup]="passwordrestForm" (ngSubmit)="changePassword()">
+  
+                <h4> Change Password </h4>
+            
+                <ion-item lines="none">
+                  
+                  <ion-input  type="password" id="currentPassword" placeholder="Current Password" formControlName="password" class="form-controll"></ion-input>    
+                
+                </ion-item>
+                <ion-item lines="none">
+                  
+                  <ion-input  type="password" id="newPassword" placeholder="New Password" formControlName="newPassword" class="form-controll"></ion-input>    
+                
+                </ion-item>
+                <ion-item lines="none">
+                  
+                  <ion-input type="password"  id="confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword" class="form-controll"></ion-input>    
+                
+                </ion-item>
+                <ion-item lines="none" style="float: right;">
+
+                  <ion-button type="submit">save</ion-button>
+                </ion-item>
+            </form>
+          </ion-col>
         </ion-row>
   </ion-grid>
 

@@ -10,6 +10,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class DisplayCoursePage implements OnInit {
   loadedSubCourse: any;
   subCourse: any //{id: string}
+
   constructor(private courseService: CoursesService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -19,10 +20,10 @@ export class DisplayCoursePage implements OnInit {
       this.subCourse = this.activatedRoute.snapshot.paramMap.get('subCategory');
       console.log(this.subCourse)
       
-      this.courseService. getSubcourseDetails(this.subCourse).subscribe(response => {
-        this.loadedSubCourse=response;
+      this.courseService. getSubcourseDetails(this.subCourse).subscribe((res:any) => {
+        this.loadedSubCourse=res;
   
-        console.log(response);
+        console.log(res);
       });
       // this.activatedRoute.params.subscribe(
     //   (params: Params) => {
@@ -30,5 +31,10 @@ export class DisplayCoursePage implements OnInit {
     //   }
     // );
   }
+
+  onRateChange(event){
+    console.log(event)
+  }
+   
 
 }

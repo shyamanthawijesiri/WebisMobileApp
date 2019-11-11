@@ -10,36 +10,38 @@ import { ToastController } from '@ionic/angular';
 })
 export class SettingsPage implements OnInit {
   selectedFile: File = null;
-  userImg: any;
+  user: any;
   pass:any
   updateForm: FormGroup;
 
   // password reset
   passwordrestForm: FormGroup;
   passwordMatch: boolean = true;
+  loggedin: boolean;
 
   constructor(private userService: UserService,
               private fb: FormBuilder,
               private toast: ToastController) { }
 
   ngOnInit() {
-    this.pass = this.userService.loadToken();
+    this.loggedin = this.userService.loggedIn();
+    this.pass = this.userService.loadToken(); 
 
     this.userService. getUser(this.pass.id).subscribe(response => {
-      this.userImg = response;
+      this.user = response;
 
       console.log(response);
 
     //update details
     
   });
-      this.updateForm = this.fb.group({
+    this.updateForm = this.fb.group({
         fname:['',Validators.required],
         lname:['',Validators.required],
       });
 
       // password reset
-      this.passwordrestForm = this.fb.group({
+    this.passwordrestForm = this.fb.group({
         password : ['', Validators.required],
         newPassword: ['', Validators.required],
         confirmPassword: ['', Validators.required]
@@ -93,9 +95,8 @@ export class SettingsPage implements OnInit {
 
   changePassword(){
     if(this.passwordrestForm.get('newPassword').value === this.passwordrestForm.get('confirmPassword').value){
-      console.log('matching');
-     
-      this.userService.changePassword(this.passwordrestForm.value, this.pass.id).subscribe(res => {
+        console.log(this.passwordrestForm.value)
+        this.userService.changePassword(this.passwordrestForm.value, this.pass.id).subscribe(res => {
         if(res.state){
           console.log('change password successfully');
           this.toastMsg(res.msg,'success')
@@ -106,12 +107,13 @@ export class SettingsPage implements OnInit {
           console.log('failed to change password');
           console.log(res.msg);
           this.toastMsg(res.msg,'danger')
-          
+
         }
       })
 
     }else{
       console.log('not matching')
+      this.toastMsg('password doen\'t matching','danger');
      
     }
 

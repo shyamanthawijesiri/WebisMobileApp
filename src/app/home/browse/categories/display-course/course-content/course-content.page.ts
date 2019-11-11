@@ -18,6 +18,7 @@ export class CourseContentPage implements OnInit {
     console.log(this.courseId)
     this.coursesService.displaycourse(this.courseId).subscribe(res =>{
      this.loadedCourse = res;
+     console.log(res)
    });
 
    this.pass = this.userService.loadToken();
@@ -32,6 +33,7 @@ export class CourseContentPage implements OnInit {
 
     this.coursesService.registerUserToCourse(course, this.courseId).subscribe(res =>{
       if(res.state){
+        console.log(res)
         console.log('regiter successufly')
       }else{
         console.log('register failed')

@@ -27,7 +27,7 @@ export class UserService {
   }
 
   // users loggedIn
-  loggedIn() {
+   loggedIn() {
     return !this.jwtHelper.isTokenExpired();
   }
  // user logout

@@ -19,6 +19,7 @@ export class CourseDetailsPage implements OnInit {
     console.log(this.courseId)
     this.coursesService.displaycourse(this.courseId).subscribe(res =>{
      this.loadedCourse = res;
+     console.log(res)
    });
 
    this.pass = this.userService.loadToken();

@@ -2,6 +2,27 @@ h4 {
     margin-left: 13px;
 }
 
+
+
 ion-button{
     float: right;
 }
+ion-content{
+    --background: linear-gradient(rgba(134, 227, 240, 0.829), rgb(166, 174, 175));
+       
+    }
+
+ion-item {
+    --ion-background-color: transparent;
+}
+
+ion-input{
+    --color:black;
+    border: solid 2px white;
+}
+
+.hr {
+    border-bottom: 1px solid black;
+    margin: 10px 0;
+    width: 100%;
+  }

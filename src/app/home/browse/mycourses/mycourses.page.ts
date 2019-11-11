@@ -9,13 +9,15 @@ import { UserService } from 'src/app/services/user.service';
 export class MycoursesPage implements OnInit {
   pass: any;
   courses: any;
+  loggedin: boolean;
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.loggedin = this.userService.loggedIn();
     this.pass = this.userService.loadToken();
-      this.userService.getRegisteredCourse(this.pass.id).subscribe(res =>{
+    this.userService.getRegisteredCourse(this.pass.id).subscribe(res =>{
         this.courses = res;
-      console.log(res);
+        console.log(res);
       });
   }
 

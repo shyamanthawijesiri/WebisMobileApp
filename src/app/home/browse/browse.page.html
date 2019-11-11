@@ -9,11 +9,11 @@
             <ion-icon name="apps"></ion-icon>
             <ion-label>Categories</ion-label>
           </ion-tab-button>
-          <ion-tab-button tab="mycourses">
+          <ion-tab-button tab="mycourses" *ngIf="loggedin">
             <ion-icon name="paper"></ion-icon>
             <ion-label>My courses</ion-label>
            </ion-tab-button>
-          <ion-tab-button tab="settings">
+          <ion-tab-button tab="settings" *ngIf="loggedin">
             <ion-icon name="settings"></ion-icon>
             <ion-label>Settings</ion-label>
           </ion-tab-button>

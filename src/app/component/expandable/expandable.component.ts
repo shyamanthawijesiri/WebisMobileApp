@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-expandable',
@@ -7,26 +8,12 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./expandable.component.scss'],
 })
 export class ExpandableComponent implements OnInit {
-  // @Input('expanded') expanded;
-  // @Input('expandHeight') expandedHeight;
-  @Input('product') product;
+   loggedin: any;
 
-  currentHeight: number = 0;
+  constructor(private userService: UserService) { }
 
-  constructor(private toastCtrl: ToastController) { }
-
-  ngOnInit() {}
-
-  // ngAfterViewInit(){
-  //   console.log(this.expanded);
-  //   console.log(this.expandedHeight);
-  // }
-
-  async buyItem(product){
-    let toast = await this.toastCtrl.create({
-      message: `added to the cart: ${product.name}`
-    });
-    toast.present();
+  ngOnInit() {
+     this.loggedin = this.userService.loggedIn();
   }
 
 }
