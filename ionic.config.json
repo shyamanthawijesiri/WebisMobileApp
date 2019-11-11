@@ -1,5 +1,7 @@
 {
   "name": "webis-mobileApp",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

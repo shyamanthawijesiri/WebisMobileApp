@@ -56,3 +56,9 @@ core/css/
 core/loader/
 .stencil/
 angular/build/
+
+andriod/app/
+andriod/gradle/
+e2e/
+www/
+Users/

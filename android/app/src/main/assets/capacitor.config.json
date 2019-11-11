@@ -1,0 +1,8 @@
+{
+  "appId": "com.webis",
+  "appName": "webis-mobileApp",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
