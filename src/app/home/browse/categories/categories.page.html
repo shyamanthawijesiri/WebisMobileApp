@@ -13,10 +13,21 @@
 </ion-header>
 
 <ion-content>
-      <ion-row>
-          <ion-searchbar style="margin-bottom:20px; margin-top:10px;"  (onChange)="onSearch('ja')"></ion-searchbar>
+  <div class="search-container">
+    
+          <ion-row>
+            <ion-col size="10">
+
+              <input type="text" placeholder="Search.." name="search" [(ngModel)]="search" style="width:100%;">
+            </ion-col>
+            <ion-col size="2">
+
+              <button style="width:100%" (click)="onSearch()"><ion-icon name="search"></ion-icon></button>
+            </ion-col>
+          </ion-row>
+        
+        </div>
    
-      </ion-row>
       <ion-row>
         <ion-col size="12">
           <!-- <ion-list *ngFor="let course of loadedCourse; let i = index">

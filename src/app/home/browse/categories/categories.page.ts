@@ -14,6 +14,7 @@ export class CategoriesPage implements OnInit {
   loadedSubCourses:any;
   itemExpand: boolean = true;
   loggedin: boolean;
+  search:string;
  // itemExpandHeight: number = 200;
  i: number;
   automaticClose = true;
@@ -63,9 +64,9 @@ export class CategoriesPage implements OnInit {
 
 
   
-  onSearch(option){
-    this.coursesService.searchCourse(option).subscribe(res=> {
-      console.log(option)
+  onSearch(){
+    this.coursesService.searchCourse(this.search).subscribe(res=> {
+  
       this.coursesService.sCourse.emit(res);
      });
     this.router.navigateByUrl('/search')
