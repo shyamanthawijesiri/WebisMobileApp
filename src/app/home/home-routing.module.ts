@@ -38,8 +38,10 @@ const routes: Routes = [
         redirectTo: '/home/tabs/browse',
         pathMatch: 'full'
     },
-  { path: 'home/:course-details', loadChildren: './course-details/course-details.module#CourseDetailsPageModule' },
+ // { path: 'home/:course-details', loadChildren: './course-details/course-details.module#CourseDetailsPageModule' },
   { path: 'enroll-course', loadChildren: './course-details/enroll-course/enroll-course.module#EnrollCoursePageModule' },
+  //{ path: 'search', loadChildren: './search/search.module#SearchPageModule' },
+
 
 
 

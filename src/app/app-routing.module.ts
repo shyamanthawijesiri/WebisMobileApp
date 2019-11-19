@@ -7,9 +7,10 @@ const routes: Routes = [
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'browse', loadChildren: './home/browse/browse.module#BrowsePageModule' },
   { path: 'signin', loadChildren: './home/signin/signin.module#SigninPageModule' },
+  {path: 'search', loadChildren: './home/search/search.module#SearchPageModule'},
   //{ path: 'categories', loadChildren: './home/browse/categories/categories.module#CategoriesPageModule' },
    { path: ':course-details', loadChildren: './home/course-details/course-details.module#CourseDetailsPageModule' },
-   { path: ':courseId/enroll-course', loadChildren: './home/course-details/enroll-course/enroll-course.module#EnrollCoursePageModule' }
+   { path: ':courseId/enroll-course', loadChildren: './home/course-details/enroll-course/enroll-course.module#EnrollCoursePageModule' },
  
 ];
 

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import {HttpClient,HttpClientModule,HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class CoursesService {
+  sCourse =new EventEmitter<any>();
 
   constructor(private http:HttpClient) { }
 
@@ -65,6 +66,10 @@ registerUserToCourse(course, id: string){
 rateCourse(rate){
   console.log(rate)
   return this.http.post(environment.url+'/course/rating' , rate).pipe(map((res:any)=>res));
+}
+
+searchCourse(value){
+  return this.http.get(environment.url + '/course/search/' + value);
 }
 
 

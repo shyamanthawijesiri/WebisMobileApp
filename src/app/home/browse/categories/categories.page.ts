@@ -2,6 +2,7 @@ import { Component, OnInit,} from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { CoursesService } from '../../../services/courses.service';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -16,7 +17,10 @@ export class CategoriesPage implements OnInit {
  // itemExpandHeight: number = 200;
  i: number;
   automaticClose = true;
-  constructor(private coursesService: CoursesService, private toastCtrl: ToastController, private userService: UserService) { }
+  constructor(private coursesService: CoursesService,
+              private toastCtrl: ToastController,
+              private userService: UserService,
+              private router: Router) { }
 
   ngOnInit() {
     //get main catergory
@@ -56,6 +60,19 @@ export class CategoriesPage implements OnInit {
     }
     });
   }
+
+
+  
+  onSearch(option){
+    this.coursesService.searchCourse(option).subscribe(res=> {
+      console.log(option)
+      this.coursesService.sCourse.emit(res);
+     });
+    this.router.navigateByUrl('/search')
+  }
+
+
+
 
 
 
