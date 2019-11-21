@@ -58,7 +58,7 @@ registerUserToCourse(course, id: string){
  
 
 
-  return this.http.post(environment.url+'course/registerCourse/'+id,course,httpOption).pipe(map((res:any)=>res));
+  return this.http.post(environment.url+'/course/registerCourse/'+id,course,httpOption).pipe(map((res:any)=>res));
 
 
 }

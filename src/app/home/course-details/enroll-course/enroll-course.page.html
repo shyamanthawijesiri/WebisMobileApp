@@ -1,6 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>enroll-course</ion-title>
+    <ion-title>Course</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/course-details"></ion-back-button>
+      
+    </ion-buttons>
+    <ion-buttons slot="end" *ngIf="loggedin">
+      <ion-menu-button menu="m1"></ion-menu-button>
+   </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

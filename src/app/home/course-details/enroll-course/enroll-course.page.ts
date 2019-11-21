@@ -16,13 +16,14 @@ export class EnrollCoursePage implements OnInit {
   pass: any;
   name: string;
   vidName: string;
-
+  loggedin: boolean;
   constructor(private a: DomSanitizer,
               private activatedRoute: ActivatedRoute,
               private courseService: CoursesService,
               private userService: UserService) { }
 
   ngOnInit() {
+    this.loggedin = this.userService.loggedIn();
     this.pass = this.userService.loadToken();
     this.courseId = {
       id: this.activatedRoute.snapshot.paramMap.get('courseId')
