@@ -1,19 +1,20 @@
 <ion-app>
   <ion-menu side="end" menuId="m1">
-      <ion-header>
+      <ion-header style="--ion-background-color: grey;">
         <ion-toolbar>
-          <ion-title>
-            hello
+          <ion-title style="color: white">
+            Menu
           </ion-title>
         </ion-toolbar>
       </ion-header>
-                  <ion-content>
-                    <ion-list>
-                      <ion-item *ngIf="!userService.loggedIn()">
-                        <a [routerLink]="['/signin']">login</a>
+      
+                  <ion-content style="--background: linear-gradient(rgba(134, 227, 240, 0.829), rgb(166, 174, 175));">
+                    <ion-list   style = "--ion-background-color: transparent;">
+                      <ion-item *ngIf="!loggedin">
+                        <a [routerLink]="['/signin']" style="text-decoration: none;">login</a>
                       </ion-item>
-                      <ion-item *ngIf="userService.loggedIn()">
-                        <a [routerLink]="['/home']" (click)="onLogout()">logout</a>
+                      <ion-item *ngIf="loggedin">
+                        <a [routerLink]="['/home']" (click)="onLogout()" style="text-decoration: none;">logout</a>
                       </ion-item>
                     </ion-list>
                   </ion-content>

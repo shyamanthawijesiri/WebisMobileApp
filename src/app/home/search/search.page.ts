@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CoursesService } from 'src/app/services/courses.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-search',
@@ -8,7 +9,8 @@ import { CoursesService } from 'src/app/services/courses.service';
 })
 export class SearchPage implements OnInit {
   searchCourse: any;
-  constructor(private coursesService: CoursesService) { }
+  loggedin: boolean;
+  constructor(private coursesService: CoursesService, private userService: UserService) { }
 
   ngOnInit() {
     this.coursesService.sCourse.subscribe(res =>{
@@ -17,6 +19,7 @@ export class SearchPage implements OnInit {
       console.log(this.searchCourse);
       console.log('hello')
     })
+    this.loggedin = this.userService.loggedIn();
   }
 
 }

@@ -12,6 +12,7 @@ export class CourseDetailsPage implements OnInit {
   courseId: string;
   loadedCourse: any;
   pass: any;
+  loggedin : boolean;
   constructor(private route: ActivatedRoute, private coursesService: CoursesService,private userService: UserService) { }
  
   ngOnInit() {
@@ -23,6 +24,7 @@ export class CourseDetailsPage implements OnInit {
    });
 
    this.pass = this.userService.loadToken();
+   this.loggedin = this.userService.loggedIn();
   }
 
   get userLoggedIn(){

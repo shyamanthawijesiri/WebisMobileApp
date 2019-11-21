@@ -5,6 +5,11 @@
         <ion-back-button defaultHref="/display-course"></ion-back-button>
         
       </ion-buttons>
+
+      <ion-buttons slot="end" *ngIf="loggedin">
+        <ion-menu-button menu="m1"></ion-menu-button>
+      
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -27,7 +32,7 @@
                   </ion-col>
                 </ion-row>
             <!-- <ion-button (click)="onRegistercourse()" *ngIf="userloggedIn()">Enroll</ion-button> -->
-            <ion-button [routerLink]="['/',courseId,'enroll-course']" (click)="onRegistercourse()">Enroll</ion-button>
+            <ion-button [routerLink]="['/',courseId,'enroll-course']" (click)="onRegistercourse()" *ngIf="loggedin">Enroll</ion-button>
           </ion-card-content>
         </ion-card>
       </ion-col>

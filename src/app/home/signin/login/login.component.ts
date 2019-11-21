@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     async successLogin() {
       const toast = await this.toast.create({
         message: 'Login Successfully',
-        color: 'success',
+        color: 'dark',
         duration: 2000
       });
       toast.present();

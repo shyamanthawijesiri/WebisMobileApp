@@ -10,7 +10,7 @@ import { UserService } from './services/user.service';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-
+  loggedin: boolean;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -18,6 +18,7 @@ export class AppComponent {
     private userService: UserService
   ) {
     this.initializeApp();
+    this.loggedin = this.userService.loggedIn();
   }
 
   initializeApp() {

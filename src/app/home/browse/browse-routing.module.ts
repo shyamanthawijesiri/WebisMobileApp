@@ -55,6 +55,7 @@ const routes: Routes = [
                     }
                 ]
             },
+      
             {
                 path: '',
                 redirectTo: '/browse/browse-tabs/featured',
