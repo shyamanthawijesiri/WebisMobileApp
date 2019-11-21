@@ -24,8 +24,8 @@ export class SignupComponent implements OnInit {
 
     this.signupForm = this.fb.group({
       
-      firstName: ['', [ Validators.required, Validators.minLength(4) ]],
-      lastName: ['', [ Validators.required , Validators.minLength(4) ]],
+      fname: ['', [ Validators.required, Validators.minLength(4) ]],
+      lname: ['', [ Validators.required , Validators.minLength(4) ]],
       email: ['', [ Validators.required, Validators.minLength(4) ]],
       password: ['', [ Validators.required, Validators.minLength(4) ]],
       role: ['student',  Validators.required],
@@ -50,7 +50,7 @@ async onLogin(){
   async successSignup() {
     const toast = await this.toast.create({
       message: 'Register successfully',
-      color: 'success',
+      color: 'dark',
       duration: 2000
     });
     toast.present();

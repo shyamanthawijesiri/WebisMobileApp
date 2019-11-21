@@ -3,6 +3,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute , Params} from '@angular/router';
 import { CoursesService } from 'src/app/services/courses.service';
 import { UserService } from 'src/app/services/user.service';
+import { ToastController } from '@ionic/angular';
+
 @Component({
   selector: 'app-enroll-course',
   templateUrl: './enroll-course.page.html',
@@ -20,7 +22,8 @@ export class EnrollCoursePage implements OnInit {
   constructor(private a: DomSanitizer,
               private activatedRoute: ActivatedRoute,
               private courseService: CoursesService,
-              private userService: UserService) { }
+              private userService: UserService,
+              public toast: ToastController) { }
 
   ngOnInit() {
     this.loggedin = this.userService.loggedIn();
@@ -63,9 +66,11 @@ export class EnrollCoursePage implements OnInit {
       if(res.state){
         console.log('success')
         console.log(res)
+        this.toastMsg(res.msg,'dark')
       }else{
        console.log(res);
         console.log('failed rate')
+        this.toastMsg(res.msg,'warning')
       }
    });
   }
@@ -74,6 +79,15 @@ export class EnrollCoursePage implements OnInit {
  //   New Value: ${$event.newValue},
  //   Checked Color: ${$event.starRating.checkedcolor},
  //   Unchecked Color: ${$event.starRating.uncheckedcolor}`);
+
+ async toastMsg(msg, msgColor) {
+  const toast = await this.toast.create({
+    message: msg,
+    color: msgColor,
+    duration: 2000
+  });
+  toast.present();
+}
 
 
 }

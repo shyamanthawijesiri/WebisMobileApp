@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>featured</ion-title>
+    <ion-title>Top Rated Courses</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
@@ -44,8 +44,8 @@
               <img src="{{subcourse.url}}">
             </a>
           
-          <ion-card-content style="height: 100px;" style="background-color:white;">
-              <ion-card-title style="font-size:13px; color:black">{{subcourse.name | topicShorten}}</ion-card-title>
+          <ion-card-content  style="background-color:white; max-height: 100px;">
+              <ion-card-title style="font-size:13px; color:black; min-height: 50px;">{{subcourse.name | topicShorten}}</ion-card-title>
               <ion-rating [rate]="subcourse.rate" readonly="true" size="small" ></ion-rating>
              <hr>
             </ion-card-content>

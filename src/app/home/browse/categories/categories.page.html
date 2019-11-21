@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>categories</ion-title>
+    <ion-title>Categories</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
       
@@ -48,7 +48,7 @@
             <div *ngIf="item.open">
               <ion-list *ngFor="let subcourse of loadedSubCourses.re">
                 <ion-item>
-                  <a class="ion-text-start" style="margin-left: 50px;" [routerLink]="['/browse','browse-tabs','categories',subcourse.name]" >
+                  <a class="ion-text-start" style="margin-left: 50px; text-decoration: none;" [routerLink]="['/browse','browse-tabs','categories',subcourse.name]" >
                       
                     {{subcourse.name}}
                   </a>
