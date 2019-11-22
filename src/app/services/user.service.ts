@@ -87,4 +87,10 @@ export class UserService {
   getRegisteredCourse(id: string){
     return this.http.get(environment.url+'/users/' + id);
   }
+
+  
+  deleteAccount(id: string,password){
+    return this.http.delete(environment.url + '/users/remove/'+id+'/'+password).pipe(map((res:any)=>res));
+}
+
 }

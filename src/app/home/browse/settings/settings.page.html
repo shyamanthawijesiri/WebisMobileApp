@@ -21,6 +21,7 @@
         <ion-label>{{user.fname}} &nbsp; {{user.lname}}</ion-label>
         
       </ion-item>
+     
       
     </ion-row>
     <div class="hr"> </div>
@@ -98,6 +99,28 @@
 
                   <ion-button type="submit">save</ion-button>
                 </ion-item>
+            </form>
+          </ion-col>
+        </ion-row>
+        <div class="hr"> </div>
+        <ion-row>
+          <ion-col size="12">
+
+            <form>
+  
+              <h4> Delete Account </h4>
+               
+                 <ion-item lines="none"> 
+                   
+                   <!-- <input type="password" class="form-control-file" id="exampleFormControlFile1" [(ngModel)]="delPassword"> -->
+                   <ion-input type="password"  id="deleteAccount" placeholder="Password" [(ngModel)]="delPassword" name="delPassword" class="form-controll"></ion-input>
+                 
+                 </ion-item>
+                 <ion-item lines="none" style="float: right;">
+
+                   <ion-button type="button" color="danger" (click)="onDelete()">Delete</ion-button>
+                 </ion-item>
+                 
             </form>
           </ion-col>
         </ion-row>

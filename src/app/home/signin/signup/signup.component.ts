@@ -24,10 +24,10 @@ export class SignupComponent implements OnInit {
 
     this.signupForm = this.fb.group({
       
-      fname: ['', [ Validators.required, Validators.minLength(4) ]],
-      lname: ['', [ Validators.required , Validators.minLength(4) ]],
-      email: ['', [ Validators.required, Validators.minLength(4) ]],
-      password: ['', [ Validators.required, Validators.minLength(4) ]],
+      fname: ['',  Validators.required],
+      lname: ['',  Validators.required ],
+      email: ['',  Validators.compose([Validators.required, Validators.email])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(6)]) ],
       role: ['student',  Validators.required],
     });
   }

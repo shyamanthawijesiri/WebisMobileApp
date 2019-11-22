@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings',
@@ -19,9 +20,13 @@ export class SettingsPage implements OnInit {
   passwordMatch: boolean = true;
   loggedin: boolean;
 
+  // delete account
+  delPassword: string;
+
   constructor(private userService: UserService,
               private fb: FormBuilder,
-              private toast: ToastController) { }
+              private toast: ToastController,
+              private router: Router) { }
 
   ngOnInit() {
     this.loggedin = this.userService.loggedIn();
@@ -118,6 +123,29 @@ export class SettingsPage implements OnInit {
     }
 
 
+
+  }
+
+  onDelete(){
+
+    console.log(this.delPassword)
+    console.log(this.pass.id)
+
+    this.userService.deleteAccount(this.pass.id,this.delPassword).subscribe((res:any) =>{
+      console.log(this.pass.id)
+      console.log(this.delPassword)
+      if(res.state){
+        console.log('successfully delete')
+        this.userService.logout();
+        this.router.navigateByUrl('/home');
+
+
+      }else{
+        console.log('error delete')
+        this.toastMsg(res.msg,'danger')
+      }
+
+    })
 
   }
 

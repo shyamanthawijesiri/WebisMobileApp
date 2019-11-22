@@ -27,22 +27,22 @@ export class LoginComponent implements OnInit {
 
     }
 
-    async failedLogin() {
+    async Login(msg,msgColor) {
       const toast = await this.toast.create({
-        message: 'Login Failed',
-        color: 'danger',
+        message: msg,
+        color: msgColor,
         duration: 2000
       });
       toast.present();
     }
-    async successLogin() {
-      const toast = await this.toast.create({
-        message: 'Login Successfully',
-        color: 'dark',
-        duration: 2000
-      });
-      toast.present();
-    }
+    // async successLogin() {
+    //   const toast = await this.toast.create({
+    //     message: 'Login Successfully',
+    //     color: 'dark',
+    //     duration: 2000
+    //   });
+    //   toast.present();
+    // }
 
   
 
@@ -58,10 +58,10 @@ export class LoginComponent implements OnInit {
         console.log('login');
         this.onCancel();
         this.router.navigateByUrl('/browse/browse-tabs/mycourses');
-        this.successLogin();
+        this.Login('Login Successfully','dark');
       }else{
         console.log('error');
-        this.failedLogin()
+        this.Login(res.msg,'danger')
       }
     })
   }

@@ -28,7 +28,7 @@
 
         </ion-item>
         
-      <ion-button type="submit" expand="block">Sign Up</ion-button> 
+      <ion-button type="submit" expand="block" [disabled]="!signupForm.valid">Sign Up</ion-button> 
   </form>
   
 </ion-content>
